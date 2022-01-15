@@ -39,6 +39,10 @@ contract AvalynCompounder is Ownable {
         }
     }
 
+    function addPools(PoolWithAddress[] memory _pools) public onlyOwner {
+        initializePools(_pools);
+    }
+
     function addLiquidity(
         address payable _pool,
         bool _isOneForTwo,
