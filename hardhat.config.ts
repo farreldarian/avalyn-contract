@@ -9,7 +9,9 @@ import 'solidity-coverage'
 import { getAlchemyNetworkConfig } from './helpers/get-alchemy-network-config/get-alchemy-network-config'
 
 const config: HardhatUserConfig = {
-  solidity: '0.8.11',
+  solidity: {
+    compilers: [{ version: '0.8.11' }, { version: '0.6.12' }],
+  },
   networks: getAlchemyNetworkConfig(process.env.ALCHEMY_API_KEY ?? '', [
     process.env.PRIVATE_KEY ?? '',
   ]),
